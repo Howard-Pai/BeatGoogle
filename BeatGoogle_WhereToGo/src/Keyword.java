@@ -1,9 +1,9 @@
 
 public class Keyword {
 	
-	private String name;
-	private int count;
-	private float weight;
+	public String name;
+	public int count;
+	public float weight;
 	
 	public Keyword(String name, int count, float weight) {
 		this.name = name;
