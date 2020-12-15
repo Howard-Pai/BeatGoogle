@@ -12,6 +12,14 @@ public class WordCounter {
     
     public WordCounter(String urlStr){
     	this.urlStr = urlStr;
+    	this.list = new KeywordList();
+    	try {
+    		list.add(new Keyword("展演", this.countKeyword("展演"), 1));
+    		//list add keyword
+    	}
+    	catch(IOException e) {
+    		e.printStackTrace();
+    	}
     }
     
     private String fetchContent() throws IOException{
