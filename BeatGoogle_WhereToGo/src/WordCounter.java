@@ -6,24 +6,15 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class WordCounter {
-	private String urlStr;
     private String content;
     private KeywordList list;
     
-    public WordCounter(String urlStr){
-    	this.urlStr = urlStr;
+    public WordCounter(){
     	this.list = new KeywordList();
-    	try {
-    		list.add(new Keyword("展演", this.countKeyword("展演"), 1));
-    		//list add keyword
-    	}
-    	catch(IOException e) {
-    		e.printStackTrace();
-    	}
     }
     
-    private String fetchContent() throws IOException{
-		URL url = new URL(this.urlStr);
+    private String fetchContent(String urlStr) throws IOException{
+		URL url = new URL(urlStr);
 		URLConnection conn = url.openConnection();
 		InputStream in = conn.getInputStream();
 		BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -39,9 +30,9 @@ public class WordCounter {
 		return retVal;
     }
     
-    public int countKeyword(String keyword) throws IOException{
+    public int countKeyword(String urlStr, String keyword) throws IOException{
 		if (content == null){
-		    content = fetchContent();
+		    content = fetchContent(urlStr);
 		}
 		
 		//To do a case-insensitive search, we turn the whole content and keyword into upper-case:
@@ -56,7 +47,23 @@ public class WordCounter {
 		    retVal++;
 		    fromIdx = found + keyword.length();
 		}
+		
+		content = null;
 	
 		return retVal;
+    }
+    
+    public double countScore(String urlStr) {
+    	double retVal = 0;
+    	for(Keyword keyword : list) {
+    		try {
+    			int count = countKeyword(urlStr, keyword.name);
+    			retVal += count * keyword.weight;
+    		}
+    		catch(IOException e) {
+    			e.printStackTrace();
+    		}
+    	}
+    	return retVal;
     }
 }

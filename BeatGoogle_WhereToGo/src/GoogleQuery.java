@@ -92,7 +92,7 @@ public class GoogleQuery
 		Elements lis = doc.select("div");
 		//System.out.println(lis);
 		lis = lis.select(".kCrYT");
-		System.out.println(lis.size());
+		//System.out.println(lis.size());
 		
 		
 		for(Element li : lis)
@@ -110,12 +110,10 @@ public class GoogleQuery
 //				e.printStackTrace();
 
 			}
-
 			
-
 		}
 
-		
+		//retVal.remove
 
 		return retVal;
 
