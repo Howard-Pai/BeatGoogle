@@ -42,15 +42,13 @@ public class GoogleQuery
 
 		this.searchKeyword = searchKeyword;
 
-		this.url = "http://www.google.com/search?q="+searchKeyword+"&oe=utf8&num=20";
+		this.url = "http://www.google.com/search?q=" + searchKeyword + "&oe=utf8&num=20";
 
 	}
 
 	
 
-	private String fetchContent() throws IOException
-
-	{
+	private String fetchContent() throws IOException{
 		String retVal = "";
 
 		URL u = new URL(url);
