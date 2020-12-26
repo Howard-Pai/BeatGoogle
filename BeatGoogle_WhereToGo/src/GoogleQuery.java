@@ -42,7 +42,7 @@ public class GoogleQuery
 
 		this.searchKeyword = searchKeyword;
 
-		this.url = "http://www.google.com/search?q=" + searchKeyword + "&oe=utf8&num=20";
+		this.url = "http://www.google.com/search?q="+searchKeyword+"&oe=utf8&num=20";
 
 	}
 
@@ -100,7 +100,7 @@ public class GoogleQuery
 			{
 				String citeUrl = li.select("a").get(0).attr("href");
 				String title = li.select("a").get(0).select(".vvjwJb").text();
-				System.out.println(title + ","+citeUrl);
+				//System.out.println(title + ","+citeUrl);
 				retVal.put(title, citeUrl);
 
 			} catch (IndexOutOfBoundsException e) {
