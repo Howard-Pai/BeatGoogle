@@ -9,14 +9,8 @@
     <link href="resources/styles/kendo.default.min.css" rel="stylesheet" type="text/css" />
     <script src="resources/js/jquery.min.js"></script>
     <script src="resources/js/kendo.all.min.js"></script>
-<script type="text/javascript">
-function load()
-{
-window.status="Page is loaded"
-}
-</script>
 </head>
-<body bgcolor="#FFCE6B" onload="load()">
+<body bgcolor="#FFCE6B">
 <div style="height:10px;"></div>
 <img src="resources/title.png"></img>
 <div style="height:10px;"></div>
