@@ -10,15 +10,22 @@
     <script src="resources/js/jquery.min.js"></script>
     <script src="resources/js/kendo.all.min.js"></script>
 </head>
+<script>
+    function onClick(e) {
+    	document.getElementById("div1").style.display = 'none';
+    	document.getElementById("div2").style.display = 'block';
+        document.form1.submit();   
+    }
+</script>
 <body bgcolor="#FFCE6B">
+<div id="div1">
 <div style="height:10px;"></div>
 <img src="resources/title.png"></img>
 <div style="height:10px;"></div>
 <div>
 <form action='${requestUri}' method='get' name='form1'>
 <kendo:textBox name='keyword' placeholder = '${keyword}' style="width:410px;height:30px;"></kendo:textBox>
-<kendo:button name="button" type="button" onClick='document.form1.submit()' imageUrl="resources/magnifying-glass.png">
-</kendo:button>
+<kendo:button name="button" type="button" click='onClick' imageUrl="resources/magnifying-glass.png"></kendo:button>
 </form>
 </div>
 <div style="height:20px;"></div>
@@ -30,5 +37,11 @@ for(int i =0 ; i < orderList.length;i++){%>
 <%
 }
 %>
+</div>
+<div id="div2" style="text-align:center;display:none;" >
+<div style="height:100px;"></div>
+<kendo:loader name="loader" type="pulsing" size="large"></kendo:loader>
+<h1>Loading...</h1>
+</div>
 </body>
 </html>
