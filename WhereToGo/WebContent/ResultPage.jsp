@@ -20,7 +20,7 @@
 <body bgcolor="#FFCE6B">
 <div id="div1">
 <div style="height:10px;"></div>
-<img src="resources/title.png"></img>
+<img src="resources/title1.png"></img>
 <div style="height:10px;"></div>
 <div>
 <form action='${requestUri}' method='get' name='form1'>

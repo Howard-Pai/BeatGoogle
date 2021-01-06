@@ -63,8 +63,10 @@ public class GoogleQuery {
 				String title = li.select("a").get(0).select(".vvjwJb").text();
 				//System.out.println(title + ","+citeUrl);
 				//URLDecoder URLDecoder = new URLDecoder();
-				citeUrl = java.net.URLDecoder.decode(citeUrl,"UTF-8");
-				retVal.put(title, citeUrl);
+				if(!title.equals("")) {
+					citeUrl = java.net.URLDecoder.decode(citeUrl,"UTF-8");
+					retVal.put(title, citeUrl);
+				}
 			} catch (IndexOutOfBoundsException e) {
 //				e.printStackTrace();
 			}
